@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+    
+    
+    <TextView
+        android:id="@+id/textoFechaPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainScreenDatePlaceHolder"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@color/black">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <RadioGroup
+            android:id="@+id/mainScreenRadiogroupTipo"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/mainScreenInsertarMovGasto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtnGasto"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp">
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/mainScreenInsertarMovGanancia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtnGanancia"
+                android:textSize="20sp"
+                android:layout_marginLeft="25dp">
+
+            </RadioButton>
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/mainScreenRadiogroupFormatos"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/mainScreenFormatoMetalico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/formatoMovimientoMetalico"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp">
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/mainScreenFormatoDigital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/formatoMovimientoDigital"
+                android:textSize="20sp"
+                android:layout_marginLeft="25dp">
+
+            </RadioButton>
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/mainScreenEditTextConcepto"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Concepto"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/mainScreenEditTextCantidad"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:inputType="numberDecimal"
+            android:digits="0123456789,."
+            android:maxLength="13">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/mainScreenBotonInsertar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:text="@string/nuevoMovimiento">
+
+        </Button>
+
+
+
+
+
+    </LinearLayout>
+
+
+    
+    
+
+</LinearLayout>

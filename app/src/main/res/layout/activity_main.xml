@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--<TextView
+            android:id="@+id/loginTituloApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombreApp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="100dp">
+
+        </TextView>-->
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/finanzaslogos"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="25dp">
+
+        </ImageView>
+
+        <LinearLayout
+            android:id="@+id/loginInputs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/loginEditTextNombre"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:hint="@string/login_HintUsuario">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/loginEditTextPasswd"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_HintPasswd"
+                android:textAlignment="center"
+                android:inputType="textPassword">
+
+            </EditText>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loginBotones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="80dp">
+
+            <Button
+                android:id="@+id/loginBtnIniciarSesion"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_iniciarSesion">
+
+            </Button>
+
+            <Button
+                android:id="@+id/loginBtnCrearUsuario"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_crearUsuario">
+
+            </Button>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

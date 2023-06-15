@@ -1,0 +1,12 @@
+package com.josedavid.misfinanzas.actividades.pantallainformes.tipos;
+
+public enum TipoTotalMovs {
+    TOTALMOVSGASTODIA,
+    TOTALMOVSGASTOMES,
+    TOTALMOVSGANANCIADIA,
+    TOTALMOVSGANANCIAMES,
+    TOTALMOVSGASTO6MES,
+    TOTALMOVSGANANCIA6MES,
+    TOTALMOVSGASTOYEAR,
+    TOTALMOVSGANANCIAYEAR
+}

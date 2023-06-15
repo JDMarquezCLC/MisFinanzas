@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <CalendarView
+        android:id="@+id/pantallaInformesCalendario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        
+    </CalendarView>
+    
+    <LinearLayout
+        android:id="@+id/pantallaInformesLayoutBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/pantallaInformesCalendario">
+
+        <Button
+            android:id="@+id/pantallaInformesBotonDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dia"
+            android:layout_margin="10dp">
+        </Button>
+        <Button
+            android:id="@+id/pantallaInformesBotonMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mes"
+            android:layout_margin="10dp">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pantallaInformesLayoutBotonesDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/pantallaInformesLayoutBotones">
+        <Button
+            android:id="@+id/pantallaInformesBoton6Meses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/seisMeses"
+            android:layout_margin="10dp">
+        </Button>
+        <Button
+            android:id="@+id/pantallaInformesBotonYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/year"
+            android:layout_margin="10dp">
+        </Button>
+        
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pantallaInformesLayoutBotonesDos"
+        android:layout_above="@id/pantallaInformesBotonVerMovimientos"
+        android:background="@color/naranjamustio">
+
+        <ScrollView
+            android:id="@+id/pantallaInformesScrollViewTextos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/naranjamustio">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/pantallaInformesTextoGanancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/promedioGanancia"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/pantallaInformesTextoGasto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/promedioGasto"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/pantallaInformesTextoTotalMovimientos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/totalMovimientos"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/pantallaInformesTextoTotalGanancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/totalGanancias"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/pantallaInformesTextoTotalGastos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/totalGastos"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+
+
+    <Button
+        android:id="@+id/pantallaInformesBotonVerMovimientos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verMovimientos"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+    </Button>
+
+</RelativeLayout>

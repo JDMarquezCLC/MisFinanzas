@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textoPantallaMovimientos"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_movs_registrados"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true">
+    </TextView>
+
+    <TextView
+        android:id="@+id/textoPantallaMovimientoscantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_movs_registrados"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_below="@id/textoPantallaMovimientos"
+        android:layout_centerHorizontal="true">
+    </TextView>
+
+    <ListView
+        android:id="@+id/pantallaMovimientosListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textoPantallaMovimientoscantidad"
+        android:layout_above="@id/botonInsertarMovimientoDiaEspecifico">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/botonInsertarMovimientoDiaEspecifico"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="@string/nuevoMovimiento"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp">
+
+    </Button>
+
+
+
+
+</RelativeLayout>
