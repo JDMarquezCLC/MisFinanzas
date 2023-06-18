@@ -48,7 +48,12 @@ public class PantallaFirstLogin extends AppCompatActivity {
         botonListo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertarPrimerMovimiento();
+                if (editTextDigital.getText().length()>0 && editTextMetalico.getText().length()>0){
+                    insertarPrimerMovimiento();
+                } else{
+                    toaster.mostrarToast("Por favor, no dejes ningún campo vacío.",1);
+                }
+
             }
         });
 
