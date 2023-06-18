@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.josedavid.misfinanzas.R;
 import com.josedavid.misfinanzas.bbdd.movimientos.Movimiento;
+import com.josedavid.misfinanzas.bbdd.movimientos.tipos.FormatoMovimiento;
 import com.josedavid.misfinanzas.bbdd.movimientos.tipos.TipoMovimiento;
 
 import org.w3c.dom.Text;
@@ -19,7 +20,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class AdaptadorMovimiento extends ArrayAdapter<Movimiento> {
-
     private ArrayList<Movimiento> movimientos;
 
     public AdaptadorMovimiento(ArrayList<Movimiento> movimientos, Context context) {
@@ -37,6 +37,7 @@ public class AdaptadorMovimiento extends ArrayAdapter<Movimiento> {
         TextView textConcepto = movimiento.findViewById(R.id.conceptoAdapterMovimiento);
         TextView textCantidad = movimiento.findViewById(R.id.cantidadAdapterMovimiento);
         //TextView textFecha = movimiento.findViewById(R.id.fechaAdapterMovimiento);
+        TextView textFormato = movimiento.findViewById(R.id.formatoAdapterMovimiento);
 
         textConcepto.setText(movimientos.get(posicion).getConcepto());
         BigDecimal cantidadBD = movimientos.get(posicion).getCantidad().setScale(2, RoundingMode.HALF_EVEN);
@@ -47,13 +48,25 @@ public class AdaptadorMovimiento extends ArrayAdapter<Movimiento> {
             movimiento.setBackgroundResource(R.color.rojogasto);
             textCantidad.setBackgroundResource(R.color.rojogasto);
             textConcepto.setBackgroundResource(R.color.rojogasto);
+            textFormato.setBackgroundResource(R.color.rojogasto);
             //textFecha.setBackgroundResource(R.color.rojogasto);
         } else if (movimientos.get(posicion).getTipo() == TipoMovimiento.GANANCIA){
             movimiento.setBackgroundResource(R.color.verdeganancia);
             textCantidad.setBackgroundResource(R.color.verdeganancia);
             textConcepto.setBackgroundResource(R.color.verdeganancia);
+            textFormato.setBackgroundResource(R.color.verdeganancia);
             //textFecha.setBackgroundResource(R.color.verdeganancia);
         }
+
+        String textoFormato;
+
+        if (movimientos.get(posicion).getFormato()== FormatoMovimiento.METALICO){
+            textoFormato = super.getContext().getResources().getString(R.string.metalico);
+        } else{
+            textoFormato = super.getContext().getResources().getString(R.string.digital);
+        }
+
+        textFormato.setText(textoFormato);
 
 
         return movimiento;

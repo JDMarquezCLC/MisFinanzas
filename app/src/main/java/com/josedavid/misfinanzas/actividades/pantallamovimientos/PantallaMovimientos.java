@@ -158,6 +158,7 @@ public class PantallaMovimientos extends AppCompatActivity {
                             linea = linea + "- ";
                         }
                         cuerpoAMandar = cuerpoAMandar + "\n" + linea;
+                        cuerpoAMandar = cuerpoAMandar + "\nConcepto: " + movimiento.getConcepto();
                         cuerpoAMandar = cuerpoAMandar + "\nTipo: ";
                         if (movimiento.getTipo().equals(TipoMovimiento.GASTO)){
                             cuerpoAMandar = cuerpoAMandar + "Gasto";
@@ -170,7 +171,7 @@ public class PantallaMovimientos extends AppCompatActivity {
                         } else{
                             cuerpoAMandar = cuerpoAMandar + "Digital";
                         }
-                        cuerpoAMandar = cuerpoAMandar + "\nCantidad: " + movimiento.getCantidad().setScale(2, RoundingMode.HALF_EVEN);
+                        cuerpoAMandar = cuerpoAMandar + "\nCantidad: " + movimiento.getCantidad().setScale(2, RoundingMode.HALF_EVEN) + "€";
                     }
 
                     intent.putExtra(Intent.EXTRA_TEXT,cuerpoAMandar);
