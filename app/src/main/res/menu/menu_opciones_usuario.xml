@@ -2,6 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menuCambiarNombre"
-        android:title="Cambiar nombre de usuario"></item>
+        android:title="@string/cambiar_nombre_de_usuario"></item>
 
 </menu>
