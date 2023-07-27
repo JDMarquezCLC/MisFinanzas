@@ -28,6 +28,7 @@ import com.josedavid.misfinanzas.bbdd.gestor.Gestor;
 import com.josedavid.misfinanzas.bbdd.movimientos.Movimiento;
 import com.josedavid.misfinanzas.bbdd.usuarios.Usuario;
 import com.josedavid.misfinanzas.mensajes.Toaster;
+import com.josedavid.misfinanzas.otros.movimientos.SaveMovementsToJson;
 
 import org.w3c.dom.Text;
 
@@ -102,12 +103,29 @@ public class PantallaPrincipal extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent actividad;
-        actividad = new Intent(
-                PantallaPrincipal.this,
-                PantallaConfigUsuario.class);
-        actividad.putExtra("usuario",usuarioSeleccionado);
-        startActivity(actividad);
+
+        switch (item.getItemId()){
+            case R.id.menuCambiarNombre:
+                Intent actividad;
+                actividad = new Intent(
+                        PantallaPrincipal.this,
+                        PantallaConfigUsuario.class);
+                actividad.putExtra("usuario",usuarioSeleccionado);
+                startActivity(actividad);
+                break;
+            case R.id.menuExportToJson:
+                boolean success = false;
+                SaveMovementsToJson saveMovementsToJson = new SaveMovementsToJson();
+                success = saveMovementsToJson.saveMovementsToJson(getFilesDir(),usuarioSeleccionado);
+                if (success){
+                    toaster.mostrarToast("Movimientos guardados a JSON correctamente.",0);
+                } else{
+                    toaster.mostrarToast("No se pudieron guardar los movimientos como JSON.",1);
+                }
+                break;
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 

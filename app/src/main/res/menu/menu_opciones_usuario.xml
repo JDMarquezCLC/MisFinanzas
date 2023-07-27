@@ -3,5 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menuCambiarNombre"
         android:title="@string/cambiar_nombre_de_usuario"></item>
+    <item android:id="@+id/menuExportToJson"
+        android:title="@string/exportarMovsAJson"></item>
 
 </menu>
