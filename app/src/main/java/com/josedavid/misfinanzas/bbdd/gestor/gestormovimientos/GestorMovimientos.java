@@ -29,13 +29,17 @@ public class GestorMovimientos {
                 null);
 
         while(cursor.moveToNext()){
-            Movimiento movimiento = creadorMovimiento.crearMovimiento(
+            Movimiento movimiento = creadorMovimiento.crearMovimientoDesdeBBDD(
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getInt(2),
                     cursor.getInt(3),
                     cursor.getString(4),
-                    cursor.getFloat(5)
+                    cursor.getFloat(5),
+                    cursor.getInt(6),
+                    cursor.getInt(7),
+                    cursor.getString(8)
+
             );
 
             listaMovimientos.add(movimiento);

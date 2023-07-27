@@ -49,4 +49,8 @@
     <string name="introducePass">Debes introducir una contraseña.</string>
     <string name="cambiar_nombre_de_usuario">Configuración de usuario</string>
     <string name="exportarMovsAJson">Exportar movimientos a JSON</string>
+    <string name="traspaso">Traspaso</string>
+    <string name="debeDevolver">Se debe devolver</string>
+    <string name="enFechaEspecifica">En fecha específica</string>
+    <string name="paraQuien">Para quién</string>
 </resources>
