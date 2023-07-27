@@ -16,6 +16,7 @@ import com.josedavid.misfinanzas.bbdd.usuarios.Usuario;
 import com.josedavid.misfinanzas.mensajes.Toaster;
 import com.josedavid.misfinanzas.actividades.pantallalogin.GestorUsuario;
 import com.josedavid.misfinanzas.actividades.pantallalogin.ModoLogin;
+import com.josedavid.misfinanzas.otros.version.AppVersion;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Gestor gestor;
     private PrincipalOFirstLogin principalOFirstLogin;
     private Intent actividad;
+    private AppVersion appVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,5 +123,6 @@ public class MainActivity extends AppCompatActivity {
         gestorUsuario = new GestorUsuario(MainActivity.this.getApplicationContext(),this.toaster);
         this.gestor = new Gestor(MainActivity.this.getApplicationContext());
         this.principalOFirstLogin = new PrincipalOFirstLogin();
+        this.appVersion = new AppVersion();
     }
 }

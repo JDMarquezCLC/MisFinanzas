@@ -2,7 +2,8 @@ package com.josedavid.misfinanzas.bbdd.movimientos.tipos;
 
 public enum TipoMovimiento {
     GASTO(0),
-    GANANCIA(1);
+    GANANCIA(1),
+    TRASPASO(2);
 
     private int valor;
 

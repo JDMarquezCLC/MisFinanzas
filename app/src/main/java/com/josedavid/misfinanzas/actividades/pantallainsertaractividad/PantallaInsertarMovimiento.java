@@ -6,7 +6,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -49,6 +52,12 @@ public class PantallaInsertarMovimiento extends AppCompatActivity {
     private RadioButton botonDigital;
     private TextView textoFechaHoy;
     private LocalDateTime fechaPasada;
+    private LinearLayout layoutPrestamos;
+    private RadioButton botonTraspaso;
+    private CheckBox checkboxPrestamo;
+    private CheckBox checkboxPrestamoConFecha;
+    private DatePicker datePickerPrestamo;
+    private EditText nombreAQuienPrestas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

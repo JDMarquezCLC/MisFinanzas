@@ -3,56 +3,29 @@ package com.josedavid.misfinanzas.bbdd.gestor.gestormovimientos.creadormovimient
 import com.josedavid.misfinanzas.bbdd.movimientos.Movimiento;
 import com.josedavid.misfinanzas.bbdd.movimientos.tipos.FormatoMovimiento;
 import com.josedavid.misfinanzas.bbdd.movimientos.tipos.TipoMovimiento;
+import com.josedavid.misfinanzas.otros.adaptadores.adaptadorfecha.AdaptadorFecha;
+import com.josedavid.misfinanzas.otros.version.AppVersion;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class CreadorMovimiento {
 
-    public Movimiento crearMovimiento(int cursorClave,
-                                      String cursorFecha,
-                                      int cursorTipo,
-                                      int cursorFormato,
-                                      String cursorConcepto,
-                                      float cursorFloat){
+    public Movimiento crearMovimientoDesdeBBDD(Integer cursorClave,
+                                               String cursorFecha,
+                                               int cursorTipo,
+                                               int cursorFormato,
+                                               String cursorConcepto,
+                                               float cursorFloat,
+                                               Integer cursorSeDebeDevolver,
+                                               Integer cursorConFechaDevuelta,
+                                               String cursorFechaDevuelta
+                                      ){
         Movimiento movimiento;
 
-        int clave = cursorClave;
-        String stringFecha = cursorFecha;
-        DateTimeFormatter dateTimeFormatter = null;
-        String formato;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        AdaptadorFecha adaptadorFecha = new AdaptadorFecha();
+        LocalDateTime fecha = adaptadorFecha.convertirFecha(cursorFecha);
 
-            formato = "yyyy-MM-dd HH:mm";
-            //if (stringFecha.charAt(4)!='-'){
-                //stringFecha = stringFecha.replace("PM","p. m.");
-                //stringFecha = stringFecha.replace("AM","a. m.");
-            //    formato = "yyyyMMdd hh:mm:ss a";
-            //}
-
-            dateTimeFormatter = DateTimeFormatter.ofPattern(formato);
-        }
-        LocalDateTime fecha = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            try{
-                fecha = LocalDateTime.parse(stringFecha,dateTimeFormatter);
-            } catch(DateTimeParseException e1){
-                try{
-                    formato = "yyyyMMdd hh:mm:ss a";
-                    dateTimeFormatter = DateTimeFormatter.ofPattern(formato);
-                    fecha = LocalDateTime.parse(stringFecha,dateTimeFormatter);
-                }catch(DateTimeParseException e2){
-                    stringFecha = stringFecha.replace("PM","p. m.");
-                    stringFecha = stringFecha.replace("AM","a. m.");
-                    formato = "yyyyMMdd hh:mm:ss a";
-                    dateTimeFormatter = DateTimeFormatter.ofPattern(formato);
-                    fecha = LocalDateTime.parse(stringFecha,dateTimeFormatter);
-                }
-            }
-
-        }
         int intTipo = cursorTipo;
         TipoMovimiento tipoMovimiento = null;
         if (intTipo==0){
@@ -70,9 +43,61 @@ public class CreadorMovimiento {
         String concepto = cursorConcepto;
         BigDecimal cantidad = BigDecimal.valueOf(cursorFloat);
 
-        movimiento = new Movimiento(clave,fecha, tipoMovimiento, formatoMovimiento,concepto,cantidad);
+        boolean seDebeDevolver = false;
+        boolean conFechaDevuelta = false;
+        LocalDateTime fechaDevuelta = null;
+
+        if(cursorSeDebeDevolver==1){
+            seDebeDevolver = true;
+        }
+        if(cursorConFechaDevuelta==1){
+            conFechaDevuelta= true;
+        }
+        if(cursorFechaDevuelta!=null){
+            fechaDevuelta = adaptadorFecha.convertirFecha(cursorFechaDevuelta);
+        }
+
+        movimiento = new Movimiento(
+                fecha,
+                tipoMovimiento,
+                formatoMovimiento,
+                concepto,
+                cantidad,
+                seDebeDevolver,
+                conFechaDevuelta,
+                fechaDevuelta,
+                new AppVersion());
+
+        if(cursorClave!=null){
+            movimiento.setClave(cursorClave);
+        }
 
         return movimiento;
+    }
+
+    public Movimiento crearMovimientoDesdeCero(LocalDateTime fechaMovimiento,
+                                               TipoMovimiento tipoMovimiento,
+                                               FormatoMovimiento formatoMovimiento,
+                                               String concepto,
+                                               BigDecimal cantidad,
+                                               boolean seDebeDevolver,
+                                               boolean conFechaDevuelta,
+                                               LocalDateTime fechaDevuelta,){
+
+        Movimiento movimiento;
+
+        movimiento = new Movimiento(fechaMovimiento,
+                tipoMovimiento,
+                formatoMovimiento,
+                concepto,
+                cantidad,
+                seDebeDevolver,
+                conFechaDevuelta,
+                fechaDevuelta,
+                new AppVersion());
+
+        return movimiento;
+
     }
 
 }

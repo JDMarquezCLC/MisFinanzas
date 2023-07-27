@@ -14,11 +14,13 @@ import com.josedavid.misfinanzas.actividades.lanzadores.principalofirstlogin.Pri
 import com.josedavid.misfinanzas.actividades.pantallalogin.GestorUsuario;
 import com.josedavid.misfinanzas.bbdd.gestor.Gestor;
 import com.josedavid.misfinanzas.bbdd.gestor.conversorcantidad.ConversorCantidad;
+import com.josedavid.misfinanzas.bbdd.gestor.gestormovimientos.creadormovimiento.CreadorMovimiento;
 import com.josedavid.misfinanzas.bbdd.movimientos.Movimiento;
 import com.josedavid.misfinanzas.bbdd.movimientos.tipos.FormatoMovimiento;
 import com.josedavid.misfinanzas.bbdd.movimientos.tipos.TipoMovimiento;
 import com.josedavid.misfinanzas.bbdd.usuarios.Usuario;
 import com.josedavid.misfinanzas.mensajes.Toaster;
+import com.josedavid.misfinanzas.otros.version.AppVersion;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -75,17 +77,29 @@ public class PantallaFirstLogin extends AppCompatActivity {
         BigDecimal cantidadDigital = conversorCantidad.convertirTextFieldABigDecimal(
                 editTextDigital);
 
-        Movimiento movimientoMetalico = new Movimiento(fechaHoy,
+
+        CreadorMovimiento creadorMovimiento = new CreadorMovimiento();
+
+        Movimiento movimientoMetalico = creadorMovimiento.crearMovimientoDesdeBBDD(null,)
+                = new Movimiento(null,fechaHoy,
                 ganancia,
                 formatoMovimientoMetalico,
                 "Dinero metálico inicial",
-                cantidadMetalico);
+                cantidadMetalico,
+                false,
+                false,
+                null,
+                new AppVersion());
 
-        Movimiento movimientoDigital = new Movimiento(fechaHoy,
+        Movimiento movimientoDigital = new Movimiento(null,fechaHoy,
                 ganancia,
                 formatoMovimientoDigital,
                 "Dinero digital inicial",
-                cantidadDigital);
+                cantidadDigital,
+                false,
+                false,
+                null,
+                new AppVersion());
 
         usuarioSeleccionado = gestor.insertarNuevaEntradaTablaUsuario(
                 usuarioSeleccionado,
